@@ -1,0 +1,22 @@
+{
+  "name": "hexo-mermaid",
+  "version": "0.0.1",
+  "description": "Static rendering of mermaid",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "babel ./index.js --out-file ./index.bundle.js"
+  },
+  "keywords": [
+    "Hexo",
+    "Mermaid"
+  ],
+  "author": "Mslxl",
+  "license": "MIT",
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.7.0",
+    "mermaid": "^8.0.0"
+  },
+  "dependencies": {
+    "puppeteer": "^1.11.0"
+  }
+}
