@@ -9,10 +9,6 @@
   ],
   "author": "Mslxl",
   "license": "MIT",
-  "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.7.0",
-    "mermaid": "^8.0.0"
-  },
   "dependencies": {
     "puppeteer": "^1.11.0"
   },
