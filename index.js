@@ -12,50 +12,23 @@ hexo.config.mermaid = Object.assign({
         dumpio: true 
     },
     defaultViewport:{
-        width: 1024,
-        height: 512,
+        width: 2048,
+        height: 1024,
     },
     backgroundColor: 'white'
 }, hexo.config.mermaid);
 
+global.hexo = Object.assign(hexo,global.hexo)
 
 if (hexo.config.mermaid.enable) {
     const util = require('hexo-util');
-    const path = require('path');
-    const puppeteer = require('puppeteer');
-    let browser;
-    hexo.extend.tag.register('mermaid', function (args, content) {
-        log['info']('POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!POI!')
-        return (async () => {
-           
-            if(!browser){
-                log['info']("Starting browser for puppereer")
-                browser = await puppeteer.launch(hexo.config.mermaid.puppeteerConfig)
-            }
-            const page = await browser.newPage();
-            
     
-            await page.goto(`file://${path.join(__dirname, 'index.html')}`)
-            await page.evaluate(`document.body.style.background = '${hexo.config.mermaid.backgroundColor}'`)
-            
-            //TODO
-            let mermaidConfig = { 
-                theme:hexo.config.mermaid.theme
-            }
-            let css;
-    
-            await page.$eval('#container', (container, definition, mermaidConfig, css) => {
-                container.innerHTML = definition
-                window.mermaid.initialize(mermaidConfig)
-                window.mermaid.init(undefined, container)
-            }, content, mermaidConfig, css)
-            const svg = await page.$eval('#container', container => container.innerHTML)
+    const builder = require('./builder');
+    //const filter = require('./lib/filter');
+    //hexo.extend.filter.register('before_post_render', filter, 9)
+    hexo.extend.tag.register('mermaid',(arg,content)=>{
+        log['info'](content)
+        return builder(content);
+    } , { async: true,ends: true });
 
-            browser.close()
-
-            return `<svg xmlns="http://www.w3.org/2000/svg" version="1.1">${svg}</svg>`
-        })()
-
-
-    }, { async: true,ends: true });
 }

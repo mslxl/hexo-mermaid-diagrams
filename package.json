@@ -1,11 +1,8 @@
 {
-  "name": "hexo-mermaid",
+  "name": "hexo-mermaid-diagrams",
   "version": "0.0.1",
-  "description": "Static rendering of mermaid",
+  "description": "Hexo plugin for rendering mermaid diagrams by puppeteer.",
   "main": "index.js",
-  "scripts": {
-    "prepublishOnly": "babel ./index.js --out-file ./index.bundle.js"
-  },
   "keywords": [
     "Hexo",
     "Mermaid"
@@ -18,5 +15,6 @@
   },
   "dependencies": {
     "puppeteer": "^1.11.0"
-  }
+  },
+  "repository": "mslxl/hexo-mermaid-diagrams"
 }
