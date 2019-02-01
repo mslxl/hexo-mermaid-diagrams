@@ -27,7 +27,6 @@ if (hexo.config.mermaid.enable) {
     //const filter = require('./lib/filter');
     //hexo.extend.filter.register('before_post_render', filter, 9)
     hexo.extend.tag.register('mermaid',(arg,content)=>{
-        log['info'](content)
         return builder(content);
     } , { async: true,ends: true });
 
