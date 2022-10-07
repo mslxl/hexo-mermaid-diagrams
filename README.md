@@ -4,7 +4,7 @@ Thanks to [mermaid.cli](https://github.com/mermaidjs/mermaid.cli)
 
 This is my first time to write nodejs package, you can contract me if there are some things wrong.
 
-* mermaid 8.0.0
+* mermaid 9.1.7
 * @fortawesome/fontawesome-free 5.7.0
 
 Install:
