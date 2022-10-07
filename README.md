@@ -24,5 +24,3 @@ graph TD;
     C-->D;
 {% endmermaid %}
 ```
-
-[![Source](https://github.com/knsv/mermaid/raw/master/img/flow.png)](https://github.com/knsv/mermaid)]
